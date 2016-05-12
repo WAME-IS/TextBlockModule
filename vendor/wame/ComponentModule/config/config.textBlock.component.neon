@@ -1,0 +1,7 @@
+services:
+	ComponentManager:
+		setup:
+			- addComponent(Wame\TextBlockModule\Vendor\Wame\ComponentModule\TextBlockComponent())
+
+
+	- {class: Wame\TextBlockModule\Vendor\Wame\ComponentModule\Events\ComponentFormListener, tags: [run]}
