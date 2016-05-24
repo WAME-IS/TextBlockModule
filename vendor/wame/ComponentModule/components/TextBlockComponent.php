@@ -17,7 +17,7 @@ interface ITextBlockComponentFactory
 class TextBlockComponent implements IComponent
 {	
 	/** @var LinkGenerator */
-	private $linkGenerator;
+	protected $linkGenerator;
 
 	/** @var ITextBlockControlFactory */
 	private $ITextBlockControlFactory;
