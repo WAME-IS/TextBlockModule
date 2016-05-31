@@ -14,6 +14,7 @@ class TextBlockLangEntity extends \Wame\Core\Entities\BaseEntity
 {
 	use Columns\Identifier;
 	use Columns\EditDate;
+	use Columns\EditUser;
 	use Columns\Lang;
 
 	/**
