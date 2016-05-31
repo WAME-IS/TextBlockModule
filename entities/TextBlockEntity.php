@@ -12,16 +12,11 @@ use Wame\Core\Entities\Columns;
 class TextBlockEntity extends \Wame\Core\Entities\BaseEntity 
 {
 	use Columns\Identifier;
+	use \Wame\ComponentModule\Entities\Columns\Component;
 
 	/**
      * @ORM\OneToMany(targetEntity="TextBlockLangEntity", mappedBy="textBlock")
      */
     protected $langs;
-
-	/**
-     * @ORM\ManyToOne(targetEntity="\Wame\ComponentModule\Entities\ComponentEntity", inversedBy="id")
-     * @ORM\JoinColumn(name="component_id", referencedColumnName="id", nullable=false)
-     */
-    protected $component;
 	
 }

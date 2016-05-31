@@ -11,7 +11,7 @@ interface ITextBlockControlFactory
 }
 
 
-class TextBlockControl extends \App\Core\Components\BaseControl
+class TextBlockControl extends \Wame\Core\Components\BaseControl
 {	
 	/** @var TextBlockControl */
 	private $textBlockRepository;

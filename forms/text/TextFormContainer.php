@@ -15,7 +15,7 @@ interface ITextFormContainerFactory
 class TextFormContainer extends BaseFormContainer
 {	
 	/** @var TextBlockRepository */
-	private $textBlockRepository;
+	protected $textBlockRepository;
 	
 	
 	public function __construct(TextBlockRepository $textBlockRepository) 
