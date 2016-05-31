@@ -7,7 +7,7 @@ use Wame\PositionModule\Repositories\PositionRepository;
 use Wame\TextBlockModule\Forms\TextFormContainer;
 use Wame\TextBlockModule\Forms\ShowTitleFormContainer;
 
-class TextBlockPresenter extends ComponentPresenter
+class TextBlockPresenter extends \App\AdminModule\Presenters\BasePresenter
 {		
 	/** @var ComponentForm @inject */
 	public $componentForm;
@@ -78,12 +78,14 @@ class TextBlockPresenter extends ComponentPresenter
 	
 	public function renderCreate()
 	{
+		$this->template->setFile(__DIR__ . '/templates/TextBlock/detail.latte');
 		$this->template->siteTitle = _('Create text block');
 	}
 	
 	
 	public function renderEdit()
 	{
+		$this->template->setFile(__DIR__ . '/templates/TextBlock/detail.latte');
 		$this->template->siteTitle = _('Edit text block');
 	}
 	
