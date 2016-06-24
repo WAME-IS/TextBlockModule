@@ -4,6 +4,7 @@ namespace Wame\TextBlockModule\Forms;
 
 use Wame\DynamicObject\Forms\BaseFormContainer;
 
+
 interface IShowTitleFormContainerFactory
 {
 	/** @return ShowTitleFormContainer */
@@ -13,13 +14,6 @@ interface IShowTitleFormContainerFactory
 
 class ShowTitleFormContainer extends BaseFormContainer
 {
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
-
-	
     protected function configure() 
 	{		
 		$form = $this->getForm();
@@ -27,8 +21,8 @@ class ShowTitleFormContainer extends BaseFormContainer
         $form->addRadioList('showTitle', _('Show title'), $this->yesOrNo)
 				->setDefaultValue(BaseFormContainer::SWITCH_NO);
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
@@ -37,5 +31,5 @@ class ShowTitleFormContainer extends BaseFormContainer
 			$form['showTitle']->setDefaultValue($object->componentEntity->getParameter('showTitle'));
 		}
 	}
-	
+
 }

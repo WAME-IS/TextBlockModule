@@ -5,6 +5,7 @@ namespace Wame\TextBlockModule\Forms;
 use Wame\DynamicObject\Forms\BaseFormContainer;
 use Wame\TextBlockModule\Repositories\TextBlockRepository;
 
+
 interface ITextFormContainerFactory
 {
 	/** @return TextFormContainer */
@@ -16,31 +17,24 @@ class TextFormContainer extends BaseFormContainer
 {	
 	/** @var TextBlockRepository */
 	protected $textBlockRepository;
-	
-	
+
+
 	public function __construct(TextBlockRepository $textBlockRepository) 
 	{
 		parent::__construct();
 		
 		$this->textBlockRepository = $textBlockRepository;
 	}
-	
-	
-    public function render() 
-	{
-        $this->template->_form = $this->getForm();
-        $this->template->render(__DIR__ . '/default.latte');
-    }
 
-	
+
     protected function configure() 
 	{		
 		$form = $this->getForm();
 
         $form->addTextArea('text', _('Text'));
     }
-	
-	
+
+
 	public function setDefaultValues($object)
 	{
 		$form = $this->getForm();
@@ -51,5 +45,5 @@ class TextFormContainer extends BaseFormContainer
 			$form['text']->setDefaultValue($textBlock->langs[$object->lang]->text);
 		}
 	}
-	
+
 }
