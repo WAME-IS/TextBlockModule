@@ -2,11 +2,17 @@
 
 namespace Wame\TextBlockModule\Repositories;
 
+use h4kuna\Gettext\GettextSetup;
+use Kdyby\Doctrine\EntityManager;
+use Nette\DI\Container;
+use Nette\Security\User;
+use Wame\Core\Exception\RepositoryException;
+use Wame\Core\Repositories\TranslatableRepository;
 use Wame\TextBlockModule\Entities\TextBlockEntity;
 
-class TextBlockRepository extends \Wame\Core\Repositories\BaseRepository
+class TextBlockRepository extends TranslatableRepository
 {		
-	public function __construct(\Nette\DI\Container $container, \Kdyby\Doctrine\EntityManager $entityManager, \h4kuna\Gettext\GettextSetup $translator, \Nette\Security\User $user, $entityName = null) {
+	public function __construct(Container $container, EntityManager $entityManager, GettextSetup $translator, User $user, $entityName = null) {
 		parent::__construct($container, $entityManager, $translator, $user, TextBlockEntity::class);
 	}
 
@@ -16,7 +22,7 @@ class TextBlockRepository extends \Wame\Core\Repositories\BaseRepository
 	 * 
 	 * @param TextBlockEntity $textBlockEntity
 	 * @return TextBlockEntity
-	 * @throws \Wame\Core\Exception\RepositoryException
+	 * @throws RepositoryException
 	 */
 	public function create($textBlockEntity)
 	{
@@ -25,7 +31,7 @@ class TextBlockRepository extends \Wame\Core\Repositories\BaseRepository
 		$this->entityManager->persist($textBlockEntity->langs);
 		
 		if (!$create) {
-			throw new \Wame\Core\Exception\RepositoryException(_('Text block could not be created.'));
+			throw new RepositoryException(_('Text block could not be created.'));
 		}
 		
 		return $textBlockEntity;
