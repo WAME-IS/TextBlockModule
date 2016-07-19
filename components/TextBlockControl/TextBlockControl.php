@@ -16,40 +16,34 @@ class TextBlockControl extends \Wame\Core\Components\BaseControl
 	/** @var TextBlockControl */
 	private $textBlockRepository;
 	
-	/** @var string */
-	private $lang;
-	
-	
-	public function __construct(TextBlockRepository $textBlockRepository) 
+	public function __construct(\Nette\DI\Container $container, TextBlockRepository $textBlockRepository) 
 	{
-		parent::__construct();
+		parent::__construct($container);
 		
 		$this->textBlockRepository = $textBlockRepository;
-		$this->lang = $textBlockRepository->lang;
 	}
 	
 	
 	public function render()
 	{
 		$show = true;
-		
-		if ($this->componentInPosition->component->status == 1) {
-			$textBlock = $this->textBlockRepository->get(['component' => $this->componentInPosition->component]);
 
-			if ($textBlock && $textBlock->langs[$this->lang]->text) {
-				$this->template->position = $this->componentInPosition;
-				$this->template->component = $this->componentInPosition->component;
-				$this->template->textBlock = $textBlock;
-				$this->template->lang = $this->lang;
-				$this->template->title = $this->componentInPosition->component->langs[$this->lang]->title;
-				$this->template->text = $textBlock->langs[$this->lang]->text;
-			} else {
-				$show = false;
-			}
-		} else {
-			$show = false;
-		}
-		
+        if(!$this->componentInPosition) {
+            throw new \Nette\InvalidArgumentException("TextBlockControl can only be used in position!");
+        }
+        
+        $textBlock = $this->textBlockRepository->get(['component' => $this->componentInPosition->component]);
+
+        if ($textBlock && $textBlock->text) {
+            $this->template->position = $this->componentInPosition;
+            $this->template->component = $this->componentInPosition->component;
+            $this->template->textBlock = $textBlock;
+            $this->template->title = $this->getTitle();
+            $this->template->text = $textBlock->text;
+        } else {
+            $show = false;
+        }
+
 		$this->template->show = $show;
 		
 		$this->getTemplateFile();

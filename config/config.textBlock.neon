@@ -13,11 +13,6 @@ services:
 	- Wame\TextBlockModule\Components\ITextBlockControlFactory
 
 
-	# Entities
-	- Wame\TextBlockModule\Entities\TextBlockEntity
-	- Wame\TextBlockModule\Entities\TextBlockLangEntity
-
-
 	# Repositories
 	- Wame\TextBlockModule\Repositories\TextBlockRepository
 

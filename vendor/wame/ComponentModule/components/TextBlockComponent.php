@@ -3,7 +3,7 @@
 namespace Wame\TextBlockModule\Vendor\Wame\ComponentModule;
 
 use Nette\Application\LinkGenerator;
-use Wame\ComponentModule\Models\IComponent;
+use Wame\ComponentModule\Registers\IComponent;
 use Wame\MenuModule\Models\Item;
 use Wame\TextBlockModule\Components\ITextBlockControlFactory;
 
@@ -81,10 +81,9 @@ class TextBlockComponent implements IComponent
 	}
 	
 	
-	public function createComponent($componentInPosition)
+	public function createComponent()
 	{
 		$control = $this->ITextBlockControlFactory->create();
-		$control->setComponentInPosition($componentInPosition);
 		
 		return $control;
 	}
