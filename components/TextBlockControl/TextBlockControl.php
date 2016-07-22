@@ -39,7 +39,7 @@ class TextBlockControl extends \Wame\Core\Components\BaseControl
             $this->template->component = $this->componentInPosition->component;
             $this->template->textBlock = $textBlock;
             $this->template->title = $this->getTitle();
-            $this->template->text = $textBlock->text;
+            $this->template->text = $textBlock->getText();
         } else {
             $show = false;
         }

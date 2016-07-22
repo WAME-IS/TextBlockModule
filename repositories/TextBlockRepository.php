@@ -26,13 +26,9 @@ class TextBlockRepository extends TranslatableRepository
 	 */
 	public function create($textBlockEntity)
 	{
-		$create = $this->entityManager->persist($textBlockEntity);
+		$this->entityManager->persist($textBlockEntity);
 		
 		$this->entityManager->persist($textBlockEntity->langs);
-		
-		if (!$create) {
-			throw new RepositoryException(_('Text block could not be created.'));
-		}
 		
 		return $textBlockEntity;
 	}
