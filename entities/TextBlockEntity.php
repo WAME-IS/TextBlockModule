@@ -4,7 +4,7 @@ namespace Wame\TextBlockModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use Wame\Core\Entities\Columns;
-use Wame\Core\Entities\TranslatableEntity;
+use Wame\LanguageModule\Entities\TranslatableEntity;
 
 /**
  * @ORM\Table(name="wame_text_block")
