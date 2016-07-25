@@ -45,9 +45,6 @@ class TextBlockControl extends \Wame\Core\Components\BaseControl
         }
 
 		$this->template->show = $show;
-		
-		$this->getTemplateFile();
-		$this->template->render();
 	}
 
 }
