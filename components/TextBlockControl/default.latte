@@ -1,7 +1,5 @@
-{if $show}
-	<h3 n:if="$component->getParameter('showTitle')">
-		{$title}
-	</h3>
+<h3 n:if="$control->getComponentParameter('showTitle')">
+    {$title}
+</h3>
 
-	{$text|noescape}
-{/if}
+{$text|noescape}
