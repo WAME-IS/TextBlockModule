@@ -5,6 +5,7 @@ namespace App\AdminModule\Presenters;
 use Wame\ComponentModule\Forms\ComponentForm;
 use Wame\ComponentModule\Repositories\PositionRepository;
 use Wame\TextBlockModule\Forms\TextFormContainer;
+use Wame\TextBlockModule\Forms\EditorFormContainer;
 use Wame\TextBlockModule\Forms\ShowTitleFormContainer;
 
 class TextBlockPresenter extends ComponentPresenter
@@ -17,6 +18,9 @@ class TextBlockPresenter extends ComponentPresenter
 
 	/** @var TextFormContainer @inject */
 	public $textFormContainer;
+
+	/** @var EditorFormContainer @inject */
+	public $editorFormContainer;
 
 	/** @var ShowTitleFormContainer @inject */
 	public $showTitleFormContainer;
@@ -68,7 +72,8 @@ class TextBlockPresenter extends ComponentPresenter
 		$form = $this->componentForm
 						->setType('TextBlockComponent')
 						->setId($this->id)
-						->addFormContainer($this->textFormContainer, 'TextFormContainer', 75)
+//						->addFormContainer($this->textFormContainer, 'TextFormContainer', 75)
+						->addFormContainer($this->editorFormContainer, 'EditorFormContainer', 75)
 						->addFormContainer($this->showTitleFormContainer, 'ShowTitleFormContainer', 25)
 						->build();
 

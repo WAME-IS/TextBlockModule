@@ -1,3 +1,4 @@
 services:
 	- Wame\TextBlockModule\Forms\TextFormContainer
+	- Wame\TextBlockModule\Forms\EditorFormContainer
 	- Wame\TextBlockModule\Forms\ShowTitleFormContainer
