@@ -32,10 +32,16 @@ class TextBlockControl extends BaseControl
 	
 	public function render()
 	{
-        $textBlock = $this->textBlockRepository->get(['component' => $this->componentInPosition->component]);
+        if (isset($this->componentInPosition->component)) {
+            $componentEntity = $this->componentInPosition->component;
+        } else {
+            $componentEntity = $this->getParent()->getComponentList()[$this->name];
+        }
+        
+        $textBlock = $this->textBlockRepository->get(['component' => $componentEntity]);
 
         $this->template->textBlock = $textBlock;
-        $this->template->title = $this->componentInPosition->component->title;
+        $this->template->title = $componentEntity->title;
         $this->template->text = $textBlock->getText();
 	}
 
