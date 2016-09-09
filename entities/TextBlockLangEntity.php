@@ -4,13 +4,14 @@ namespace Wame\TextBlockModule\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use Wame\Core\Entities\Columns;
+use Wame\Core\Entities\BaseLangEntity;
 use Nette\Utils\Strings;
 
 /**
  * @ORM\Table(name="wame_text_block_lang")
  * @ORM\Entity
  */
-class TextBlockLangEntity extends \Wame\Core\Entities\BaseEntity 
+class TextBlockLangEntity extends BaseLangEntity
 {
 	use Columns\Identifier;
 	use Columns\EditDate;
@@ -40,5 +41,12 @@ class TextBlockLangEntity extends \Wame\Core\Entities\BaseEntity
 		
 		return $this;
 	}
+    
+    
+    /** {@inheritDoc} */
+    public function setEntity($entity)
+    {
+        $this->textBlock = $entity;
+    }
 	
 }
