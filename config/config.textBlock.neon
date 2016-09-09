@@ -1,22 +1,24 @@
 services:
-	PermissionObject:
-		setup:
-			- addResource('textBlock')
-			- addResourceAction('textBlock', 'create')
-			- allow('moderator', 'textBlock', 'create')
-			- addResourceAction('textBlock', 'edit')
-			- allow('moderator', 'textBlock', 'edit')
-			- addResourceAction('textBlock', 'delete')
-			- allow('admin', 'textBlock', 'delete')
+    PermissionObject:
+        setup:
+            - addResource('textBlock')
+            - addResourceAction('textBlock', 'create')
+            - allow('moderator', 'textBlock', 'create')
+            - addResourceAction('textBlock', 'edit')
+            - allow('moderator', 'textBlock', 'edit')
+            - addResourceAction('textBlock', 'delete')
+            - allow('admin', 'textBlock', 'delete')
 
 
-	- Wame\TextBlockModule\Components\ITextBlockControlFactory
+    - Wame\TextBlockModule\Components\ITextBlockControlFactory
 
 
-	# Repositories
-	- Wame\TextBlockModule\Repositories\TextBlockRepository
+    # Repositories
+    TextBlockRepository:
+        class: Wame\TextBlockModule\Repositories\TextBlockRepository
+        inject: yes
 
 
 doctrine:
-	metadata:
-		Wame\TextBlockModule\Entities: %appDir%/../vendor/wame/TextBlockModule/entities
+    metadata:
+        Wame\TextBlockModule\Entities: %appDir%/../vendor/wame/TextBlockModule/entities

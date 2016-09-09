@@ -2,18 +2,16 @@
 
 namespace Wame\TextBlockModule\Repositories;
 
-use h4kuna\Gettext\GettextSetup;
-use Kdyby\Doctrine\EntityManager;
-use Nette\DI\Container;
-use Nette\Security\User;
 use Wame\Core\Exception\RepositoryException;
 use Wame\LanguageModule\Repositories\TranslatableRepository;
 use Wame\TextBlockModule\Entities\TextBlockEntity;
+use Wame\TextBlockModule\Entities\TextBlockLangEntity;
 
 class TextBlockRepository extends TranslatableRepository
 {		
-	public function __construct(Container $container, EntityManager $entityManager, GettextSetup $translator, User $user, $entityName = null) {
-		parent::__construct($container, $entityManager, $translator, $user, TextBlockEntity::class);
+	public function __construct()
+    {
+		parent::__construct(TextBlockEntity::class, TextBlockLangEntity::class);
 	}
 
 	
@@ -27,7 +25,6 @@ class TextBlockRepository extends TranslatableRepository
 	public function create($textBlockEntity)
 	{
 		$this->entityManager->persist($textBlockEntity);
-		
 		$this->entityManager->persist($textBlockEntity->langs);
 		
 		return $textBlockEntity;
