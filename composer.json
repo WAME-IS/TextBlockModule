@@ -10,8 +10,10 @@
         }
     ],
     "require": {
-        "wame/Core": "*",
         "wame/ComponentModule": "*"
+    },
+    "softRequire": {
+        "wame/AdminModule": "*"
     },
     "autoload": {
         "classmap": [
