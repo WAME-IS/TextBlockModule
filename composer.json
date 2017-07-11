@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "wame/ComponentModule": "*"
+        "wame/ComponentModule": ">=0.0.1",
+        "wame/EditorFormControl": ">=0.0.1"
     },
     "softRequire": {
         "wame/AdminModule": "*"
