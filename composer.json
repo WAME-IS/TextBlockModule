@@ -11,8 +11,7 @@
         }
     ],
     "repositories": [
-        { "type": "composer", "url": "http://packages.wame.sk" },
-        { "type": "vcs", "url": "https://github.com/matej21/nette-identity-doctrine" }
+        { "type": "composer", "url": "http://packages.wame.sk" }
     ],
     "config": { "secure-http": false },
     "require": {
@@ -20,7 +19,7 @@
         "wame/EditorFormControl": ">=0.0.1"
     },
     "softRequire": {
-        "wame/AdminModule": ">=0.0.1",
+        "wame/AdminModule": ">=0.0.1"
     },
     "autoload": {
         "classmap": [
