@@ -42,7 +42,7 @@ class TextBlockControl extends BaseControl
 
         $this->template->textBlock = $textBlock;
         $this->template->title = $componentEntity->title;
-        $this->template->text = $textBlock ? $textBlock->getText() : null;
+        $this->template->text = $textBlock ? $textBlock->text : null;
 	}
 
 }
